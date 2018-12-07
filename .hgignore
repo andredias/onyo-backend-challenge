@@ -4,7 +4,7 @@ syntax: glob
 *.py[cod]
 *.{orig,rej}
 *.db
-*.sqlite3s
+*.sqlite3
 
 # Arquivos de backup do Mercurial
 *.orig
