@@ -23,6 +23,7 @@ class BaseConfig(Configuration):
         'api.apps.ApiConfig',
     ]
     MIDDLEWARE = [
+        'django.middleware.cache.UpdateCacheMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -30,6 +31,7 @@ class BaseConfig(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'django.middleware.cache.FetchFromCacheMiddleware',
     ]
     ROOT_URLCONF = 'cep.urls'
     TEMPLATES = [
@@ -74,6 +76,11 @@ class BaseConfig(Configuration):
     USE_L10N = True
     USE_TZ = True
     STATIC_URL = '/static/'
+    CACHE = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    }
 
 
 class Development(BaseConfig):
@@ -82,6 +89,11 @@ class Development(BaseConfig):
 
 class Testing(BaseConfig):
     TESTING = True
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    }
 
 
 class Production(BaseConfig):
