@@ -8,5 +8,8 @@ class CEP(models.Model):
     localidade = models.CharField(max_length=100)
     uf = models.CharField(max_length=2)
 
+    class Meta:
+        ordering = ('cep', )
+
     def __str__(self):
         return self.cep
