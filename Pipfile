@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 django-configurations = "*"
 python-dotenv = "*"
+requests = "*"
 
 [dev-packages]
 ipython = "*"

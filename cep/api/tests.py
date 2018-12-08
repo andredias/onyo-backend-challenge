@@ -32,8 +32,8 @@ def test_empty_ceps(apiclient):
     assert len(response.json()) == 0
 
 
-def test_ceps_get(apiclient, populate_db):
-    response = apiclient.get(reverse('cep-list'))
+def test_ceps_get(client, populate_db):
+    response = client.get(reverse('cep-list'))
     json = response.json()
     assert response.status_code == 200
     assert len(json) == 3
