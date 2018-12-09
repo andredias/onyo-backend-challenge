@@ -1,0 +1,7 @@
+**/*.sqlite3
+.env
+*/pytest.ini
+*/conftest.py
+*/.pytest_cache
+*/.coverage
+*/Makefile

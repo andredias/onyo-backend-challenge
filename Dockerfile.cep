@@ -1,0 +1,26 @@
+FROM python:3.7-alpine
+
+RUN pip install -U pipenv
+
+# Project Files and Settings
+ARG PROJECT=cep
+ARG PROJECT_DIR=/var/www/${PROJECT}
+
+RUN mkdir -p $PROJECT_DIR
+WORKDIR $PROJECT_DIR
+COPY Pipfile Pipfile.lock ./
+RUN pipenv install --system
+COPY cep/ .
+
+# .env creation
+RUN echo -e "SECRET_KEY='$(cat /dev/urandom | tr -dc 'A-Za-z0-9@$%&_+=!?,.*[]()' | head -c 32)'\n\
+DJANGO_CONFIGURATION='Development'\n\
+" > .env
+RUN python manage.py migrate
+RUN python manage.py loaddata fixture_data.json
+
+# Server
+EXPOSE 8001
+STOPSIGNAL SIGINT
+ENTRYPOINT ["python", "manage.py"]
+CMD ["runserver", "0.0.0.0:8001"]
