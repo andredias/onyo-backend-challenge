@@ -111,6 +111,12 @@ def test_funcionarios_detail_patch_authenticated(apiclient, populate_db):
     assert len(json) == 10
 
 
+def test_funcionarios_detail_delete(apiclient, populate_db):
+    apiclient.login(username='beltrano', password='1234')
+    response = apiclient.delete(reverse('funcionario-detail', args=['12345678901']))
+    assert response.status_code == 204
+
+
 def test_api_root(apiclient):
     response = apiclient.get(reverse('api-root'))
     assert response.status_code == 200

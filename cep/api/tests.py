@@ -103,6 +103,12 @@ def test_ceps_detail_try_partial_update_with_put_authenticated(apiclient, popula
     assert response.status_code == 400
 
 
+def test_ceps_detail_delete(apiclient, populate_db):
+    apiclient.login(username='fulano', password='1234')
+    response = apiclient.delete(reverse('cep-detail', args=['13175667']))
+    assert response.status_code == 204
+
+
 def test_api_root(apiclient):
     response = apiclient.get(reverse('api-root'))
     assert response.status_code == 200
