@@ -23,4 +23,4 @@ RUN mkdir -p static && python manage.py collectstatic --no-input
 ENV PORT 8001
 EXPOSE $PORT
 STOPSIGNAL SIGINT
-CMD python manage.py runserver 0.0.0.0:$PORT
+CMD gunicorn --bind 0.0.0.0:$PORT cep.wsgi:application

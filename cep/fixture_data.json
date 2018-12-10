@@ -57,20 +57,18 @@
 },
 {
     "model": "sessions.session",
+    "pk": "439hf0um9hbi89e5lg3k9onon51etvst",
+    "fields": {
+        "session_data": "YjMwYmFjZjgzZjBjNjNlMThkZmI5NDc3NTRjMTk2MjYxMjgzODcyMDp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZWMyZmUzMGU1YTNlZDA1OGJmYjYwOTExNTM0Nzg2YjgwMDA0NjcxIn0=",
+        "expire_date": "2018-12-24T16:51:58.704Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "nff0th6bfiorr3n3wjnftjpvfdhif2bi",
     "fields": {
         "session_data": "ZTViMWU5ZmMzNDI3ZDlkZDA3MDM4MzAwNzNhYzJmMzEzMzQ1ODE4MTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0OTY3OThmODBjOWQzM2Q1MWRlNGNhNzM5Y2JmYzYxNThjNGQxNmFiIn0=",
         "expire_date": "2018-12-21T15:14:06.363Z"
-    }
-},
-{
-    "model": "api.cep",
-    "pk": "03047000",
-    "fields": {
-        "logradouro": "Rua 21 de Abril",
-        "bairro": "Br\u00e1s",
-        "localidade": "S\u00e3o Paulo",
-        "uf": "SP"
     }
 },
 {
@@ -80,16 +78,6 @@
         "logradouro": "Travessa 19 de Agosto",
         "bairro": "Jardim Maria Estela",
         "localidade": "S\u00e3o Paulo",
-        "uf": "SP"
-    }
-},
-{
-    "model": "api.cep",
-    "pk": "13100600",
-    "fields": {
-        "logradouro": "Rua Benedito de Lima",
-        "bairro": "Vila Orozimbo Maia",
-        "localidade": "Campinas",
         "uf": "SP"
     }
 },
@@ -388,7 +376,7 @@
     "pk": 2,
     "fields": {
         "password": "pbkdf2_sha256$120000$iauOwxp7bqso$vSz2di/nmxmYud0atCZfJbHcm2eLVNJ9fm/YU9hGjfE=",
-        "last_login": null,
+        "last_login": "2018-12-10T16:51:58.638Z",
         "is_superuser": false,
         "username": "fulano",
         "first_name": "",

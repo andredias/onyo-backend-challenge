@@ -10,6 +10,7 @@ django-configurations = "*"
 python-dotenv = "*"
 requests = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 ipython = "*"
@@ -17,6 +18,7 @@ ipython = "*"
 pytest = "*"
 pytest-django = "*"
 pytest-cov = "*"
+httpie = "*"
 
 [requires]
 python_version = "3.6"
