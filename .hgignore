@@ -38,3 +38,8 @@ instance/
 .coverage
 .coverage.*
 .tox
+
+
+# django specific
+staticfiles
+static

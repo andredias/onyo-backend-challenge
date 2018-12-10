@@ -111,6 +111,14 @@ def test_funcionarios_detail_patch_authenticated(apiclient, populate_db):
     assert len(json) == 10
 
 
+def test_funcionarios_detail_patch_authenticated_nonexistent_cep(apiclient, populate_db):
+    apiclient.login(username='beltrano', password='1234')
+    response = apiclient.patch(reverse('funcionario-detail', args=['12345678901']), {
+        'cep': '99999999', 'numero': '99', 'complemento': ''})
+    assert response.status_code == 400
+    assert b'{"detail":"CEP: N\xc3\xa3o encontrado."}' in response.content
+
+
 def test_funcionarios_detail_delete(apiclient, populate_db):
     apiclient.login(username='beltrano', password='1234')
     response = apiclient.delete(reverse('funcionario-detail', args=['12345678901']))
