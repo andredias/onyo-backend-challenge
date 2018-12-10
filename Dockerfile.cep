@@ -13,14 +13,13 @@ RUN pipenv install --system
 COPY cep/ .
 
 # .env creation
-RUN echo -e "SECRET_KEY='$(cat /dev/urandom | tr -dc 'A-Za-z0-9@$%&_+=!?,.*[]()' | head -c 32)'\n\
-DJANGO_CONFIGURATION='Development'\n\
-" > .env
+ENV DJANGO_CONFIGURATION Production
+ENV SECRET_KEY='$(cat /dev/urandom | tr -dc 'A-Za-z0-9@$%&_+=!?,.*[]()' | head -c 64)'
 RUN python manage.py migrate
 RUN python manage.py loaddata fixture_data.json
 
 # Server
-EXPOSE 8001
+ENV PORT 8001
+EXPOSE $PORT
 STOPSIGNAL SIGINT
-ENTRYPOINT ["python", "manage.py"]
-CMD ["runserver", "0.0.0.0:8001"]
+CMD python manage.py runserver 0.0.0.0:$PORT

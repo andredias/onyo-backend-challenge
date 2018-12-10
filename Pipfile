@@ -9,6 +9,7 @@ djangorestframework = "*"
 django-configurations = "*"
 python-dotenv = "*"
 requests = "*"
+whitenoise = "*"
 
 [dev-packages]
 ipython = "*"

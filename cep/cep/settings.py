@@ -3,7 +3,7 @@ from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
 from configurations import Configuration
 
-load_dotenv(find_dotenv(raise_error_if_not_found=True))
+load_dotenv(find_dotenv())
 
 BASE_DIR = Path(__file__).parent.parent
 
@@ -23,6 +23,7 @@ class BaseConfig(Configuration):
         'api.apps.ApiConfig',
     ]
     MIDDLEWARE = [
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         'django.middleware.cache.UpdateCacheMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,7 +76,11 @@ class BaseConfig(Configuration):
     USE_I18N = True
     USE_L10N = True
     USE_TZ = True
+    STATIC_ROOT = str(BASE_DIR / 'staticfiles')
     STATIC_URL = '/static/'
+    STATICFILES_DIRS = [
+        str(BASE_DIR / "static"),
+    ]
     CACHE = {
         'default': {
             'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -97,4 +102,4 @@ class Testing(BaseConfig):
 
 
 class Production(BaseConfig):
-    pass
+    ALLOWED_HOSTS = ['onyo-cep.herokuapp.com']

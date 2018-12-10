@@ -1,0 +1,14 @@
+version: "3"
+services:
+    cep:
+        container_name: onyo-cep
+        build:
+            context: .
+            dockerfile: Dockerfile.cep
+        image: registry.heroku.com/onyo-cep/web
+        stdin_open: true
+        tty: true
+        ports:
+            - "8001:8001"
+        environment:
+            PORT: "8001"

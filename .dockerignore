@@ -1,5 +1,5 @@
 **/*.sqlite3
-.env
+*/.env
 */pytest.ini
 */conftest.py
 */.pytest_cache
