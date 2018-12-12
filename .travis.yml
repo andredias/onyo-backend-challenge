@@ -1,0 +1,15 @@
+language: python
+python: 3.6
+
+services:
+    - docker
+
+before_install:
+    - pip install docker-compose
+    - docker-compose build
+
+install:
+    - make install
+
+script:
+    - make test
