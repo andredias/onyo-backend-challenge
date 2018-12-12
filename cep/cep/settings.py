@@ -77,11 +77,7 @@ class BaseConfig(Configuration):
     USE_I18N = True
     USE_L10N = True
     USE_TZ = True
-    STATIC_ROOT = str(BASE_DIR / 'staticfiles')
     STATIC_URL = '/static/'
-    STATICFILES_DIRS = [
-        str(BASE_DIR / "static"),
-    ]
     CACHE = {
         'default': {
             'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -104,3 +100,7 @@ class Testing(BaseConfig):
 
 class Production(BaseConfig):
     ALLOWED_HOSTS = ['onyo-cep.herokuapp.com']
+    STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+    STATICFILES_DIRS = [
+        str(BASE_DIR / "static"),
+    ]
