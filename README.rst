@@ -2,6 +2,8 @@
 Desafio Técnico Onyo
 ====================
 
+|Build Status|
+
 Este projeto é a implementação do desafio técnico proposto pela Onyo
 como parte do seu processo de contratação.
 O objetivo do desafio é criar dois microsserviços integrados,
@@ -320,3 +322,7 @@ Instruções para Instalação no Heroku
     $ docker push registry.heroku.com/onyo-funcionario/web
     $ heroku container:release web --app onyo-cep
     $ heroku container:release web --app onyo-funcionario
+
+
+.. |Build Status| image:: https://travis-ci.org/andredias/onyo-backend-challenge.svg?branch=master
+    :target: https://travis-ci.org/andredias/onyo-backend-challenge
