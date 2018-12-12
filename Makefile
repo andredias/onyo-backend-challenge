@@ -14,8 +14,9 @@ env:
 
 install: env
 	pip install pipenv
-	pipenv install
 	pipenv install --dev
+	(cd cep && pipenv run ./manage.py migrate && pipenv run ./manage.py loaddata fixture_data.json)
+	(cd funcionario && pipenv run ./manage.py migrate && pipenv run ./manage.py loaddata fixture_data.json)
 
 
 run:
